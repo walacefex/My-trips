@@ -1,21 +1,16 @@
 import dynamic from 'next/dynamic'
+import LinkWrapper from 'components/LinkWrapper'
+import { InfoOutline } from '@styled-icons/evaicons-outline/InfoOutline'
 
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 export default function Home() {
   return (
-    <Map
-      places={[
-        {
-          id: '1',
-          name: 'São Paulo',
-          slug: 'saopaulo',
-          location: {
-            latitude: -23.5489,
-            longitude: -46.6388
-          }
-        }
-      ]}
-    />
+    <>
+      <LinkWrapper href="/about">
+        <InfoOutline size={32} aria-label="About" />
+      </LinkWrapper>
+      <Map />
+    </>
   )
 }
